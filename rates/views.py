@@ -10,18 +10,18 @@ class CurrencyModelViewSet(ModelViewSet, TemplateView):
     model = Currency
     serializer_class = CurrencySerializer
     queryset = Currency.objects.all()
-    renderer_classes = (renderers.JSONRenderer, renderers.TemplateHTMLRenderer)
+    # renderer_classes = (renderers.JSONRenderer, renderers.TemplateHTMLRenderer)
 
 class ExchangeRateModelViewSet(ModelViewSet, TemplateView):
     model = ExchangeRate
     serializer_class = ExchangeRateSerializer
     queryset = ExchangeRate.objects.all()
-    renderer_classes = (renderers.JSONRenderer, renderers.TemplateHTMLRenderer)
-    template_name = 'rates/index.html'
+    # renderer_classes = (renderers.JSONRenderer, renderers.TemplateHTMLRenderer)
+    # template_name = 'rates/index.html'
 
     #list method example to render both json and html
-    def list(self, request, *args, **kwargs):
-        response = super(ExchangeRateModelViewSet, self).list(request, *args, **kwargs)
-        if request.accepted_renderer.format == 'html':
-            return Response({'data': response.data})
-        return response
+    # def list(self, request, *args, **kwargs):
+    #     response = super(ExchangeRateModelViewSet, self).list(request, *args, **kwargs)
+    #     if request.accepted_renderer.format == 'html':
+    #         return Response({'data': response.data})
+    #     return response
